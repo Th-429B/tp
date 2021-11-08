@@ -1,0 +1,24 @@
+@startuml
+
+start
+title Sort Command Activity Diagram
+
+:User executes sort command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([valid command])
+    :Parse command;
+    if () then ([valid parameter])
+    :Sort list of contacts by parameter;
+
+    else ([invalid parameter])
+    : Throw exception;
+    endif
+else ([invalid command])
+  : Throw exception;
+endif
+- Display result/error message
+stop
+@enduml

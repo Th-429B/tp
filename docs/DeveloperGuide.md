@@ -95,9 +95,12 @@ The UI consists of a `MainWindow` that is made up of parts such as:
 * `CommandBox`
 * `ResultDisplay`
 * `PersonListPanel`
+* `PersonComponent`
+* `TagComponent`
 * `StatusBarFooter`
 * `HelpWindow`
 * `StatsWindow`
+
 All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component,
@@ -561,6 +564,11 @@ the inbuilt `Date::compareTo` method.  <br>
 `SortByPriority`: Implemented by first assigning int values to `tags`, `tags` with the highest priority will have the smallest int value.
 Using those priority values, the inbuilt `Integer::compareTo` is used. <br>
 
+The activity diagram below illustrates the flow of a sort command.
+
+![Sort_Activity_Diagram](images/SortActivityDiagram.png)
+<br> *Figure 20: Sort Activity Diagram of FAST*
+
 #### Usage Scenario
 
 Given below is an example usage scenario and how the sort mechanism behaves at each step.
@@ -582,7 +590,7 @@ to sort the list of persons by their name.
 The sequence diagram below illustrates the execution of `sort name`.
 
 ![Sort_Sequence_Diagram](images/SortSequenceDiagram.png)
-<br> *Figure 20: Sort Sequence Diagram of FAST*
+<br> *Figure 21: Sort Sequence Diagram of FAST*
 
 
 #### Design Considerations
@@ -647,7 +655,7 @@ window will open to allow users to view help regardless. For reference, the curr
 The activity diagram below shows the many ways a user can utilise the help command
 
 ![Help Command Activity Diagram](images/HelpCommandActivityDiagram.png)
-<br> *Figure 21: Help Command Activity Diagram of FAST*
+<br> *Figure 22: Help Command Activity Diagram of FAST*
 
 The way the help command is parsed is slightly different from the other commands. This is due to the help command not
 interacting with the `model` and `storage` components like other commands. Instead, the parsing of the help command
@@ -656,7 +664,7 @@ parameter is done by `ParserUtil` and verification of the parameter is done in `
 diagram as shown below.
 
 ![Help Command Sequence Diagram](images/HelpCommandParsingSequenceDiagram.png)
-<br> *Figure 22: Help Command Sequence Diagram of FAST*
+<br> *Figure 23: Help Command Sequence Diagram of FAST*
 
 
 To access the different commands' help page from within the help window, there is a dropdown selector which will
@@ -722,7 +730,7 @@ passed to `StatsWindow` to populate the pie chart with the data and generate the
 as shown below.
 
 ![Stats Window Sequence Diagram](images/StatsWindowSequenceDiagram.png).
-<br> *Figure 23: Stats Window Sequence Diagram of FAST*
+<br> *Figure 24: Stats Window Sequence Diagram of FAST*
 
 The implementation for Investment Plan Tag statistics is identical, except instead of a `PriorityData`, the data is encapsulated
 into a `InvestmentPlanData`, and uses the methods `populateInvestmentPieChart()`, `getInvestmentPlanData()` and 
@@ -784,7 +792,7 @@ This command has a relatively straightforward implementation:
 The activity diagram below shows the flow of a typical tag command.
 
 ![TagActivityDiagram](images/TagActivityDiagram.png)
-<br> *Figure 24: Tag Activity Diagram of FAST*
+<br> *Figure 25: Tag Activity Diagram of FAST*
 
 #### Usage Scenario 
 
@@ -801,7 +809,7 @@ return a `TagCommand` that contains a Set of tags to delete and another Set of t
 object diagram below shows the state of the `Person` object and the `Tag` associated with it.
 
 ![TagCommandState1](images/TagCommandState1.png)
-<br> *Figure 25: Before Command Executed Object Diagram of FAST*
+<br> *Figure 26: Before Command Executed Object Diagram of FAST*
 
 **5**) `LogicManager` then calls the method `TagCommand::execute`, which will attempt to add and delete the specified 
 tags, while ensuring that certain conditions are met.
@@ -812,11 +820,11 @@ tag `friend` will be deleted. The object diagram below shows the final state of 
 and the `Tag` associated with it.
 
 ![TagCommandState2](images/TagCommandState2.png)
-<br> *Figure 26: After Command Executed Object Diagram of FAST*
+<br> *Figure 27: After Command Executed Object Diagram of FAST*
    
 The sequence diagram below shows the process for the usage scenario as described above.
 ![TagSequenceDiagram](images/TagSequenceDiagram.png)
-<br> *Figure 27: Tag Sequence Diagram of FAST*
+<br> *Figure 28: Tag Sequence Diagram of FAST*
    
 #### Design Considerations
 
@@ -866,6 +874,7 @@ The sequence diagram below shows the process for the usage scenario as described
 
 **Value proposition**: Financial Advisors are busy. We will help them save time by optimising our system for them. FAST keeps track of client details and information for them.
 
+<div style="page-break-after: always;"></div>
 
 ### User stories
 
@@ -1444,10 +1453,10 @@ testers are expected to do more *exploratory* testing.
     2. **Test case**: `find pr/high`<br>
        **Expected**: All clients with a "HighPriority" tag are displayed. Success message with details of search is shown.
        
-    3. **Test case**: `find pr/friend`
+    3. **Test case**: `find pr/friend`<br>
        **Expected**: No search results are displayed. Error message is shown.
        
-    4. **Other incorrect find commands to try**: `find pr/`, `find pr/    `
+    4. **Other incorrect find commands to try**: `find pr/`, `find pr/`<br>
        **Expected**: Similar to previous (in Point 3).
        
 #### Finding by tag
@@ -1457,10 +1466,10 @@ testers are expected to do more *exploratory* testing.
     2. **Test case**: `find t/friend`<br>
        **Expected**: All clients with a "friend" tag are displayed. Success message with details of search is shown.
        
-    3. **Test case**: `find t/`
+    3. **Test case**: `find t/`<br>
        **Expected**: No search results are displayed. Error message is shown.
        
-    4. **Other incorrect find commands to try**: `find t/    `
+    4. **Other incorrect find commands to try**: `find t/    <br>`
        **Expected**: Similar to previous (in Point 3).
        
 #### Finding by remark
@@ -1470,10 +1479,10 @@ testers are expected to do more *exploratory* testing.
     2. **Test case**: `find r/likes to eat`<br>
        **Expected**: All clients with remarks containing "likes to eat" are displayed. Success message with details of search is shown.
        
-    3. **Test case**: `find r/`
+    3. **Test case**: `find r/`<br>
        **Expected**: No search results are displayed. Error message is shown.
        
-    4. **Other incorrect find commands to try**: `find r/    `
+    4. **Other incorrect find commands to try**: `find r/    `<br>
        **Expected**: Similar to previous (in Point 3).
 
 ### Deleting a Client
@@ -1529,10 +1538,8 @@ testers are expected to do more *exploratory* testing.
 
     3. **Test case**: `rmk 1 r/`<br>
        **Expected**: Removes the remark of the first client in the displayed list. Success message with details of the client, and an empty remark is shown.
-    4. **Test case**: `rmk 1`<br>
-       **Expected**: No remark added. Error message is shown.
    
-    5. **Other incorrect remark commands to try**: `rmk r/ `, `rmk 1 r/remark...`(where remark... represents a remark longer than 45 characters) <br>
+    4. **Other incorrect remark commands to try**: `rmk r/ `, `rmk 1 r/remark...`(where remark... represents a remark longer than 45 characters) <br>
        **Expected**: Similar to previous (in Point 4).
 
 ### Appointment Feature
