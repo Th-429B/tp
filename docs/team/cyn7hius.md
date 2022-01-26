@@ -50,6 +50,7 @@ Given below are my contributions to the project.
 
 
 #### Enhancement to Existing Features
+<br> 
 
 * **Enhancements to existing features**:`help` feature.
 
@@ -71,8 +72,9 @@ Given below are my contributions to the project.
       Users can use the `help` command to directly access the help topic they want. This works even if an existing `help` window
       is opened. Help window uses many JavaFX components like `ComboBox`, listeners and eventHandlers to ensure that user input
       is properly detected.
-
-  <br> 
+      
+    <br> 
+    <br> 
 
     * **Related PR**: [\#80](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/80), [\#95](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/95),
       [\#134](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/134)
@@ -81,12 +83,14 @@ Given below are my contributions to the project.
 
 * [RepoSense link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2021-09-17&tabOpen=true&tabType=authorship&tabAuthor=Cyn7hius&tabRepo=AY2122S1-CS2103T-T09-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
 
+
 ### Documentation
 
 * **User Guide**:
     * Added introduction section [\#126](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/126)
     * Added documentation for help window [\#111](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/111) [\#142](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/142)
     * Added documentation for stats window [\#111](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/111) [\#142](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/142)
+
 
 
 * **Developer Guide**:

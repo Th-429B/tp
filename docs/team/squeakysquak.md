@@ -19,8 +19,6 @@ JavaFX. It is written in Java, and has about 12 kLoC.
 
 Given below are my contributions to the project.
 
-<br>
-
 #### Enhancement to Existing Features
 
 * **Enhancement 1**: Enhance find feature
@@ -47,6 +45,8 @@ Given below are my contributions to the project.
   <br> 
   
   * **Related PR**: [\#110](https://github.com/AY2122S1-CS2103T-T09-4/tp/pull/110)
+
+<br>
 
 * **Enhancement 2**: Quality of life improvements
   * **What it does**:<br>

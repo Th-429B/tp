@@ -121,13 +121,12 @@ on any operating system including Windows, macOS or Linux
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. 
    
    ![Ui](images/Ui.png)
-   
-   <div markdown="block" class="alert alert-info">
-   :information_source: More icons will be added in future iterations<br>
-   </div>
+
    
 1. When you first start up, FAST will contain some sample data for you to explore the different features.
 1. You are now ready to start managing your clients!
+
+<div style="page-break-after: always"></div>
 
 ### User interface
 
@@ -140,13 +139,16 @@ Following that, we have the _Client information_ cards. Each client is represent
 all the information of that client. <br><br>
 Lastly, the _Command box_ is where you can type in all your commands!
 
+<div style="page-break-after: always"></div>
+
+
 ### Try it out!
 
 We recommend that you play around with FAST to get a better idea of the features and their usages. Don't worry, these
 are all sample data! Here are some commands you can try to see what they do:
 
     
-1. Add a contact named "John Doe" to FAST
+1. Add a contact named "Matthew Shen" to FAST
    * `add n/Matthew Shen p/91087657 e/matthew@example.com a/511 Seletar Road 12`
     
 2. Delete the 3rd contact in FAST
@@ -210,7 +212,7 @@ are all sample data! Here are some commands you can try to see what they do:
 
 * If a command expects a specific set of parameters, and you entered *extra* parameter into the command (with unrecognised),
 prefix, then FAST will assume it to be part of the previous parameter input, which may or may not be valid for certain commands. <br>
-    * e.g. if a command expects this parameter `ea v/New York` but you enter `ea v/New York p/87657654`, 
+    * e.g. if a command expects this parameter `ea 2 v/New York` but you enter `ea 2 v/New York p/87657654`, 
   FAST will assume your input to `v/` to be `New York p/87657654`.
 </div>
 
@@ -219,7 +221,6 @@ Parameters refer to the details that are to be included as an input to a command
 Prefix refers to the word symbol used before the parameter. 
 </div>
 
-<br>
 
 ### **Command Parameters**
 In this subsection, you can see all the parameters used in FAST at one place. These parameters are used for 
@@ -227,7 +228,7 @@ all our features usage.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 To achieve the best possible experience, avoid adding excessively long input to FAST.
-</div><br>
+</div>
 
 #### `ADDRESS` 
 * The address of your client
@@ -356,7 +357,10 @@ the earliest time to the latest time.
 #### `VENUE`
 * The location of an appointment with your client
 * Should not be longer than **20** characters long
-<br> <br>
+<br> 
+
+<div style="page-break-after: always"></div>
+
 
 ### **Managing a client**
 
@@ -419,10 +423,10 @@ This can be used if the client's information has changed, or if you entered an i
 * For further information on the type of tags available and how to use them, refer to the [Tags](#tags) section.
 </div>
 
-<div markdown="span" class="alert alert-warning"> :exclamation:
 
-* At least one of the optional fields must be provided.
-* When editing tags, all existing tags of the client will be replaced with the new tags.
+<div markdown="span" class="alert alert-warning"> :exclamation: **Caution:**
+At least one of the optional fields must be provided. <br> 
+When editing tags, all existing tags of the client will be replaced with the new tags.
 </div>
 
 **Parameters**:
@@ -445,7 +449,7 @@ This can be used if the client's information has changed, or if you entered an i
 
 You can delete the specified client from FAST. This is useful when a client has stopped using your services.
 
-**Format 1**: `del INDEX...`
+**Format 1**: `del INDEX [INDEX]...` <br>
 **Format 2**: `del INDEX-INDEX`
 
 * Deletes the client(s) at the specified `INDEX`.
@@ -459,16 +463,15 @@ will be deleted.
 ![DeleteExample](images/deleteexample.png)
 * `find Betsy` followed by `del 1` deletes the first client in the results of the `find` command.
 
-<div markdown="span" class="alert alert-primary">:bulb: Tip:
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Can be used to delete up to **10** contacts in a single `del` command by supplying more `INDEX`.
 </div>
 
-<div markdown="span" class="alert alert-primary">:exclamation: Warning:
+<div markdown="span" class="alert alert-warining">:exclamation: **Caution:**
 If *Format 1* is used, there should be a space in between each `INDEX` if multiple `INDEX` are input. <br>
 If *Format 2* is used, first `INDEX` should not be larger than second `INDEX`.
 </div>
 
-**Examples**:
 * `del 2 4 6 8 10` deletes the 2nd, 4th, 6th, 8th and 10th person in FAST.
 * `del 3-5` deletes the 3rd, 4th and 5th person in FAST.
 
@@ -497,8 +500,8 @@ which should mostly be one or two words.<br>
 * [`INDEX`](#index)
 * [`REMARK`](#remark)
 
-<div markdown="span" class="alert alert-primary">:bulb: Tip:
-To delete a remark, leave the remark parameter `[r/[`REMARK`](#remark)]` empty.
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+To delete a remark, leave the remark parameter empty.
 </div>
 
 **Examples**:
@@ -514,7 +517,6 @@ Try to add remarks with specific keywords so that it is easier to [search](#sear
 Adding a remark will overwrite any previous remarks that were made for the client!
 </div>
 
-<div style="page-break-after: always"></div>
 
 #### Appointments
 
@@ -540,8 +542,8 @@ for an appointment.
 
 ![Appointment](images/addappointment.png)
 
-<div markdown="span" class="alert alert-primary">:warning:
-The `DATE` of the appointment must at least be specified.
+<div markdown="span" class="alert alert-warning"> :exclamation: **Caution:**
+The `DATE` of the appointment must be specified.
 </div>
 
 
@@ -571,7 +573,7 @@ This command is useful when your appointment has been rescheduled or has a chang
 Existing details will be updated with the input data.
 </div>
 
-<div markdown="span" class="alert alert-warning"> :exclamation: 
+<div markdown="span" class="alert alert-warning"> :exclamation: **Caution:**
 At least **one** of the optional fields must be present.
 </div>
 
@@ -741,6 +743,9 @@ You can add or delete the tags of a specified client.
 
 <br>
 
+<div style="page-break-after: always"></div>
+
+
 ### **Managing your client base**
 
 In addition to changing individual [client's](#managing-a-client) details, you can also perform commands which affects your entire client list.
@@ -836,7 +841,7 @@ In the help window, you can view all the command usages built-in right into FAST
 **Format**: `help [HELP_TOPIC]`
 
 **Parameters**:
-* [`HELP_TOPIC`](#help-topics)
+* [`HELP_TOPIC`](#help_topic)
 
 **Examples**:
 * `help` will just open the default help window
@@ -927,20 +932,24 @@ The commands are categorised (based on their purpose) into 5 different categorie
 Action | Format, Examples
 --------|------------------
 **Add Contact** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Delete Contact** | `del INDEX`<br> e.g. `del 3`
+**Delete Contact** | `del INDEX [INDEX]...`<br> e.g. `del 3 1` <br> `del INDEX-INDEX` <br> e.g. `del 3-5`
 **Edit Contact** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.`edit 2 n/James Lee e/jameslee@example.com`
 **Add Remark** | `rmk INDEX [r/REMARK]`
 **Edit Remark** | `rmk INDEX r/REMARK` OR `rmk INDEX`<br> e.g. `rmk 1 r/likes dogs`
+
+<div style="page-break-after: always"></div>
 
 ### Appointment Management
 
 Action | Format, Examples
 --------|------------------
 **Add appointment** |`aa INDEX d/DATE [t/TIME] [v/VENUE]`<br> e.g. `aa 3 d/2021-03-27 t/18:00 v/Clementi Park`<br>
-**Delete Appointment** | `da INDEX`<br> e.g. `da 1`<br>
+**Delete Appointment** | `da INDEX`<br> e.g. `da 1`<br> 
 **Edit Appointment** | `ea INDEX [d/DATE] [t/TIME] [v/VENUE]`<br> e.g. `ea 3 v/Clementi Town d/2021-03-27 t/18:00`<br>
 **Update Completed Appointment** | `ma INDEX`<br> e.g. `ma 5`
 **Undo Marked Appointment** | `ua INDEX` <br> e.g. `ua 1`
+
+<div style="page-break-after: always"></div>
 
 ### Tag Management
 
@@ -949,6 +958,8 @@ Action | Format, Examples
 **Edit Tag** |`tag INDEX a/[TAG] d/[TAG]` <br> e.g. `tag 1 a/friend d/ip/life`
 **Investment Plan Tag** | Health Insurance: `ip/health`<br>Investment: `ip/invest`<br>Life Insurance: `ip/life`<br>Motor Insurance: `ip/motor`<br>Property Insurance: `ip/property`<br>Savings: `ip/save`<br>Travel Insurance: `ip/travel`<br><br>
 **Priority Tag** | Low Priority: `pr/low`<br>Medium Priority: `pr/med`<br>High Priority: `pr/high`
+
+<div style="page-break-after: always"></div>
 
 ### Navigation
 
@@ -978,7 +989,7 @@ Familiarising yourself with this section will make the User Guide easier to read
 Term | Meaning
 --------|------------------
 **Graphical User Interface (GUI)** | A GUI allows users to use graphics to interact with a device.
-**Command Line Interface (GUI)** | A CLI allows users to use commands in the form of text as input to a device.
+**Command Line Interface (CLI)** | A CLI allows users to use commands in the form of text as input to a device.
 **Java** | Java is a runtime environment that allows applications such as FAST to be run on your computer.
 **Command** | An instruction typed by a user, to be executed by FAST.
 **Parameter** | A section of a command that requires user input to be entered.
